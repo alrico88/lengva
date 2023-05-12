@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
+    "@pinia/nuxt": "^0.4.6",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@types/lodash-es": "^4.17.6",
+    "@volar/vue-language-plugin-pug": "^1.0.18",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.6.0",
+    "nuxt": "3.4.3",
+    "nuxt-icon": "^0.4.0",
+    "prettier": "^2.8.1",
+    "pug": "^3.0.2",
+    "sass": "^1.57.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@sindresorhus/is": "^5.3.0",
+    "@vueuse/core": "^10.1.2",
+    "@vueuse/nuxt": "^10.1.2",
+    "bootstrap": "5.3.0-alpha1",
+    "lodash-es": "^4.17.21"
+  }
+}
