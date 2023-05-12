@@ -18,6 +18,10 @@ export default defineNuxtConfig({
           content:
             "translate,multiple,languages,mass,english,french,german,spanish,many languages",
         },
+        {
+          name: "google-site-verification",
+          content: "nc0pKffQdhm679g_eXEQhjK-NzBM8ZbyFQLR9ZMeJtc",
+        },
       ],
       htmlAttrs: {
         "data-bs-theme": "light",
