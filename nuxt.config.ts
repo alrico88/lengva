@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
   extends: ["nuxt-umami"],
   app: {
     head: {
@@ -46,6 +46,11 @@ export default defineNuxtConfig({
       description:
         "Web app to translate a word or sentence to many languages at once",
       theme_color: "#f1e8df",
+    },
+  },
+  routeRules: {
+    "/": {
+      static: true,
     },
   },
 });
