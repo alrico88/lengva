@@ -52,4 +52,10 @@ export default defineNuxtConfig({
       static: true,
     },
   },
+  appConfig: {
+    umami: {
+      id: "",
+      host: "",
+    },
+  },
 });
