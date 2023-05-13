@@ -1,42 +1,9 @@
-# Nuxt 3 Minimal Starter
+# Lengva - Multi Translator
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Lengva is a web app to translate a word or sentence into multiple languages at once. It uses [Lingva Translate](https://github.com/thedaviddelta/lingva-translate) under the hood, with a customizable instance.
 
-## Setup
+It's built using [Nuxt 3](https://nuxt.com) and Typescript.
 
-Make sure to install the dependencies:
+## License
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)

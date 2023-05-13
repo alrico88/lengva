@@ -67,6 +67,10 @@ const translations = shallowRef<
 
 async function handleTranslate(word: string, from: string) {
   try {
+    umTrackEvent("translation", {
+      from,
+    });
+
     loading.value = true;
     error.value = false;
     counters.loaded = 0;
@@ -93,7 +97,7 @@ async function handleTranslate(word: string, from: string) {
       return limit.value(async () => {
         const translation = await $fetch<{
           translation: string;
-          [name: string]: any;
+          [name: string]: unknown;
         }>(`/api/v1/${from}/${to}/${word}`, {
           baseURL: instance.value,
         });
