@@ -27,7 +27,12 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ["@/assets/main.scss"],
+  css: [
+    "@/assets/main.scss",
+    "@fontsource/source-sans-pro/index.css",
+    "@fontsource/source-sans-pro/600.css",
+    "@fontsource/source-sans-pro/700.css",
+  ],
   modules: [
     "nuxt-icon",
     "@vueuse/nuxt",
@@ -38,6 +43,7 @@ export default defineNuxtConfig({
       },
     ],
     "@kevinmarrec/nuxt-pwa",
+    "nuxt-simple-sitemap",
   ],
   pwa: {
     manifest: {
@@ -49,7 +55,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": {
-      static: true,
+      prerender: true,
     },
   },
   appConfig: {
