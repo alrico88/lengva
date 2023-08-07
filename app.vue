@@ -10,6 +10,8 @@
           .col
             translate-card(
               :loading="loading"
+              v-model:word-to-translate="wordToTranslate",
+              v-model:from-language="fromLanguage"
               @go-translate="handleTranslate"
             )
     .container.py-4
@@ -47,6 +49,9 @@ import { useInstanceStore } from "./stores/instance";
 const instanceStore = useInstanceStore();
 const { instance, concurrency } = storeToRefs(instanceStore);
 
+const wordToTranslate = ref("");
+const fromLanguage = ref("en");
+
 const limit = computed(() => pLimit(concurrency.value));
 
 const counters = reactive({
@@ -65,8 +70,11 @@ const translations = shallowRef<
   }[]
 >([]);
 
-async function handleTranslate(word: string, from: string) {
+async function handleTranslate() {
   try {
+    const from = fromLanguage.value;
+    const word = wordToTranslate.value;
+
     umTrackEvent("translation", {
       from,
     });
@@ -123,7 +131,10 @@ async function handleTranslate(word: string, from: string) {
 }
 
 function exportTranslations() {
-  saveAs(new Blob([JSON.stringify(translations.value, null, 2)]), "cosa.json");
+  saveAs(
+    new Blob([JSON.stringify(translations.value, null, 2)]),
+    `${wordToTranslate.value}_translations.json`
+  );
 }
 </script>
 

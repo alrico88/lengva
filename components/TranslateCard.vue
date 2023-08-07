@@ -6,10 +6,10 @@
         .row.align-items-end.g-3
           .col-lg-8.col-md-6.col-12
             h5.fw-bold Translate
-            input.form-control.form-control-lg(type="text" v-model="translate" placeholder="Enter a word or sentence to translate")
+            input.form-control.form-control-lg(type="text" v-model="wordToTranslate" placeholder="Enter a word or sentence to translate")
           .col-lg-2.col-md-6.col-12
             h5.fw-bold From
-            from-select(v-model:from="from")
+            from-select(v-model:from="fromLanguage")
           .col-lg-2.col-md-12
             .hstack.gap-2
               button.btn.btn-primary.btn-lg.w-100(:disabled="translateBtnDisabled" type="submit") {{ loading ? 'Translating' : 'Translate' }}
@@ -18,9 +18,11 @@
         .row(v-show="showConfig")
           .col
             h5.fw-bold Lingva Translate Instance
+            .text-muted Enter #[kbd /] for this site's own instance
             input.form-control.form-control-lg(type="text", v-model="instance")
           .col-md-4
             h5.fw-bold Concurrent requests
+            .text-muted Set a low number not to overload the instance
             input.form-control.form-control-lg(type="number", v-model.number="concurrency")
 </template>
 
@@ -29,10 +31,14 @@ import { useInstanceStore } from "~/stores/instance";
 
 const props = defineProps<{
   loading: boolean;
+  wordToTranslate: string;
+  fromLanguage: string;
 }>();
 
+const { wordToTranslate, fromLanguage } = useVModels(props);
+
 const emit = defineEmits<{
-  (e: "go-translate", word: string, from: string): void;
+  "go-translate": [];
 }>();
 
 const instanceStore = useInstanceStore();
@@ -43,14 +49,11 @@ function toggleConfig() {
   showConfig.value = !showConfig.value;
 }
 
-const translate = ref("");
 const translateBtnDisabled = computed(
-  () => props.loading === true || translate.value === ""
+  () => props.loading === true || wordToTranslate.value === ""
 );
 
-const from = ref("en");
-
 function handleSubmit() {
-  emit("go-translate", translate.value, from.value);
+  emit("go-translate");
 }
 </script>

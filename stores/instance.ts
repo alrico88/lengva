@@ -1,5 +1,5 @@
 export const useInstanceStore = defineStore("instanceStore", () => {
-  const instance = ref("https://lingva.ml");
+  const instance = ref("/");
   const concurrency = ref(10);
 
   return {
