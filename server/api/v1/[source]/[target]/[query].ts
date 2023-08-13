@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     translation: await getTranslationText(
       source as Exclude<"zh_HANT", LangCode>,
       target as Exclude<"zh_HANT", LangCode>,
-      query
+      decodeURIComponent(query)
     ),
   };
 });

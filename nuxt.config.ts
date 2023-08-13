@@ -55,7 +55,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": {
-      prerender: true,
+      static: true,
     },
   },
   appConfig: {
